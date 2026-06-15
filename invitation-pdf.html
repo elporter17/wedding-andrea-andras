@@ -91,7 +91,7 @@
       quote:"Két szív, egy szerelem,<br>egy gyönyörű utazás, amelyet alig várunk, hogy megosszunk veletek.",
       weddingOf:"Esküvője",
       invite:"Örömmel meghívunk titeket,<br>hogy ünnepeljétek velünk esküvőnket",
-      saturday:"Szombat", date:"2026. július 4.", time:"12:00",
+      saturday:"Szombat", date:"2026. Július 4.", time:"12:00",
       ceremony:"Szertartás", reception:"Fogadás",
       gift:"Jelenléted lesz a legszebb ajándék számunkra — szeretettel várunk az esküvőnk napján."
     }
@@ -118,12 +118,13 @@
         </div>
 
         <div>
-          <div class="label">${d.weddingOf}</div>
+          ${d.lang==='hu' ? '' : `<div class="label">${d.weddingOf}</div>`}
           <div class="names">
             <span class="n">ANDREA</span>
             <span class="amp">&amp;</span>
             <span class="n">ANDRÁS</span>
           </div>
+          ${d.lang==='hu' ? `<div class="label" style="margin-top:2mm">${d.weddingOf}</div>` : ''}
         </div>
 
         <div class="photo-wrap">

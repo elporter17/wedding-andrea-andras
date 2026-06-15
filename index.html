@@ -102,6 +102,7 @@
   .hero__text{ position:relative; z-index:3; padding:clamp(2rem,6vw,5rem) clamp(1.4rem,5vw,4.5rem); display:flex; flex-direction:column; justify-content:center; }
   .hero__quote{ font-style:italic; font-size:clamp(1.05rem,1.6vw,1.35rem); color:var(--ink-soft); max-width:22ch; margin-bottom:1.8rem; }
   .hero__of{ margin-bottom:.4rem; }
+  .hero__after{ display:none; margin-top:.6rem; }
   .names{ font-weight:500; line-height:.98; letter-spacing:.02em; }
   .names .n{ font-size:clamp(3rem,8.5vw,6.2rem); display:block; }
   .names .amp{ display:flex; align-items:center; gap:1rem; font-size:clamp(2rem,5vw,3.4rem); color:var(--gold); margin:.1rem 0; }
@@ -291,6 +292,7 @@
         <span class="amp">&amp;</span>
         <span class="n">ANDRÁS</span>
       </div>
+      <p class="label hero__after reveal d2" data-i18n="weddingOf"></p>
       <div class="divider reveal d3"><span class="heart">♡</span></div>
       <p class="hero__invite reveal d3" data-i18n="invite"></p>
     </div>
@@ -349,7 +351,7 @@
       <div class="detail-grid">
         <div class="reveal left d1">
           <span class="label" data-i18n="saturday"></span>
-          <div class="big-date">4 <span data-i18n="july"></span> 2026</div>
+          <div class="big-date" data-i18n="bigDate"></div>
           <div class="divider"><span class="heart">♡</span></div>
           <span class="label" id="time">12:00 PM</span>
         </div>
@@ -430,7 +432,7 @@
       weddingOf:"The wedding of",
       invite:"We joyfully invite you\nto celebrate our wedding",
       scroll:"Scroll",
-      together:"Together with their families",
+      together:"Together with your family",
       quoteBig:"We joyfully invite you to celebrate our wedding.",
       storyLabel:"Where it all began",
       storyTitle:"Our journey",
@@ -438,7 +440,7 @@
       countdownTitle:"Until our big day",
       days:"Days", hours:"Hours", minutes:"Minutes", seconds:"Seconds",
       invite2:"We request the pleasure of your company",
-      saturday:"Saturday", july:"July", time:"12:00 PM",
+      saturday:"Saturday", bigDate:"4 July 2026", time:"12:00 PM",
       ceremony:"Ceremony", reception:"Reception", viewMap:"View on map", addCal:"Add to calendar",
       moments:"Our moments", momentsSub:"A few of our favourite memories around the world",
       gift:"Your presence will be our greatest gift. We request the pleasure of your company on our wedding day."
@@ -448,7 +450,7 @@
       weddingOf:"Esküvője",
       invite:"Örömmel meghívunk titeket,\nhogy ünnepeljétek velünk esküvőnket",
       scroll:"Görgess",
-      together:"Családjaikkal együtt",
+      together:"Családotokkal együtt",
       quoteBig:"Örömmel meghívunk, hogy ünnepeld velünk az esküvőnket.",
       storyLabel:"Ahol minden elkezdődött",
       storyTitle:"A mi utazásunk",
@@ -456,7 +458,7 @@
       countdownTitle:"A nagy napunkig",
       days:"Nap", hours:"Óra", minutes:"Perc", seconds:"Másodperc",
       invite2:"Szeretettel várjuk a társaságodat",
-      saturday:"Szombat", july:"Július", time:"12:00",
+      saturday:"Szombat", bigDate:"2026. Július 4.", time:"12:00",
       ceremony:"Szertartás", reception:"Fogadás", viewMap:"Megnézem a térképen", addCal:"Hozzáadás a naptárhoz",
       moments:"Pillanataink", momentsSub:"Néhány kedvenc emlékünk a világ minden tájáról",
       gift:"Jelenléted lesz a legszebb ajándék számunkra. Szeretettel várunk az esküvőnk napján."
@@ -471,6 +473,10 @@
       if(dict[key]!==undefined) el.innerHTML = dict[key].replace(/\n/g,'<br>');
     });
     document.getElementById('time').textContent = dict.time;
+    // In Hungarian "Esküvője" goes AFTER the names, in English "The wedding of" goes before
+    const isHu = lang==='hu';
+    document.querySelector('.hero__of').style.display    = isHu ? 'none' : '';
+    document.querySelector('.hero__after').style.display = isHu ? 'block' : 'none';
     document.querySelectorAll('.lang button').forEach(b=> b.classList.toggle('active', b.dataset.lang===lang));
     try{ localStorage.setItem('weddingLang', lang); }catch(e){}
   }
