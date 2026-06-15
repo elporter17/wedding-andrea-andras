@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Andrea &amp; András — Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#f4efe6; --cream-2:#ece4d6; --ivory:#faf7f1;
+    --ink:#2c2a27; --ink-soft:#5b554d;
+    --gold:#a8895f; --gold-soft:#c4ab84; --gold-line:#d8c7a8;
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --script:'Great Vibes',cursive;
+    --sans:'Montserrat',sans-serif;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  @page{ size:A4 portrait; margin:0; }
+  body{ font-family:var(--serif); color:var(--ink); }
+
+  .page{
+    width:210mm; height:297mm; position:relative; overflow:hidden;
+    background:radial-gradient(120% 90% at 50% 0%, var(--ivory), var(--cream) 65%, var(--cream-2));
+    display:flex; flex-direction:column; align-items:center;
+    padding:16mm 18mm; page-break-after:always;
+  }
+  .page:last-child{ page-break-after:auto; }
+
+  /* gold frame */
+  .frame{ position:absolute; inset:8mm; border:1px solid var(--gold-line); pointer-events:none; }
+  .frame::before{ content:""; position:absolute; inset:2.5mm; border:1px solid rgba(168,137,95,.35); }
+  .corner{ position:absolute; width:14mm; height:14mm; color:var(--gold); opacity:.85; }
+  .corner svg{ width:100%; height:100%; }
+  .corner.tl{ top:5mm; left:5mm; } .corner.tr{ top:5mm; right:5mm; transform:scaleX(-1); }
+  .corner.bl{ bottom:5mm; left:5mm; transform:scaleY(-1); } .corner.br{ bottom:5mm; right:5mm; transform:scale(-1,-1); }
+
+  .content{ position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; text-align:center; width:100%; height:100%; justify-content:space-between; }
+
+  .top{ display:flex; flex-direction:column; align-items:center; }
+  .quote{ font-style:italic; font-size:13pt; color:var(--ink-soft); max-width:30ch; line-height:1.5; margin-bottom:5mm; }
+  .leaf{ color:var(--gold); font-size:16pt; margin:4mm 0 2mm; }
+
+  .label{ font-family:var(--sans); letter-spacing:.32em; text-transform:uppercase; font-size:8.5pt; color:var(--gold); }
+  .names{ line-height:1; margin:3mm 0 1mm; }
+  .names .n{ font-size:46pt; font-weight:500; letter-spacing:.02em; display:block; }
+  .names .amp{ font-family:var(--script); font-size:34pt; color:var(--gold); margin:0; line-height:1; }
+
+  .photo-wrap{ margin:4mm 0; display:flex; align-items:flex-end; justify-content:center; height:78mm; }
+  .photo-wrap img{ height:100%; width:auto; object-fit:contain;
+    filter:drop-shadow(0 6mm 8mm rgba(60,48,30,.25)); }
+
+  .divider{ display:flex; align-items:center; justify-content:center; gap:3mm; color:var(--gold); margin:3mm 0; }
+  .divider::before,.divider::after{ content:""; height:1px; width:18mm; background:linear-gradient(90deg,transparent,var(--gold-line)); }
+  .divider::after{ transform:scaleX(-1); }
+  .heart{ font-size:9pt; }
+
+  .invite-line{ font-family:var(--script); font-size:20pt; color:var(--gold); line-height:1.2; }
+
+  .details{ display:flex; gap:14mm; justify-content:center; margin-top:3mm; }
+  .details .col{ display:flex; flex-direction:column; align-items:center; }
+  .big-date{ font-size:30pt; font-weight:500; line-height:1; margin:1mm 0; }
+  .time{ font-family:var(--sans); letter-spacing:.22em; font-size:9pt; color:var(--ink-soft); }
+  .venue{ font-style:italic; font-size:13pt; margin-top:1mm; }
+  .addr{ font-family:var(--sans); font-size:7.5pt; letter-spacing:.06em; color:var(--ink-soft); margin-top:1mm; }
+
+  .venues{ display:flex; gap:16mm; justify-content:center; margin-top:2mm; }
+  .gift{ font-family:var(--sans); letter-spacing:.14em; text-transform:uppercase; font-size:7.5pt; line-height:2; color:var(--ink-soft); max-width:52ch; margin-top:2mm; }
+
+  .footer-mono{ font-family:var(--script); font-size:18pt; color:var(--gold); }
+</style>
+</head>
+<body>
+
+  <!-- ============ helper template repeated per language via JS ============ -->
+  <div id="root"></div>
+
+<script>
+  const PAGES = [
+    {
+      lang:"en",
+      quote:"Two hearts, one love,<br>a beautiful journey we can't wait to share with you.",
+      weddingOf:"The wedding of",
+      invite:"We joyfully invite you<br>to celebrate our wedding",
+      saturday:"Saturday", date:"4 July 2026", time:"12:00 PM",
+      ceremony:"Ceremony", reception:"Reception",
+      gift:"Your presence will be our greatest gift — we request the pleasure of your company on our wedding day."
+    },
+    {
+      lang:"hu",
+      quote:"Két szív, egy szerelem,<br>egy gyönyörű utazás, amelyet alig várunk, hogy megosszunk veletek.",
+      weddingOf:"Esküvője",
+      invite:"Örömmel meghívunk titeket,<br>hogy ünnepeljétek velünk esküvőnket",
+      saturday:"Szombat", date:"2026. július 4.", time:"12:00",
+      ceremony:"Szertartás", reception:"Fogadás",
+      gift:"Jelenléted lesz a legszebb ajándék számunkra — szeretettel várunk az esküvőnk napján."
+    }
+  ];
+
+  const corner = `<svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M6 54 C6 28 28 6 54 6"/>
+    <path d="M14 54 C14 32 32 14 54 14"/>
+    <circle cx="50" cy="10" r="2.2" fill="currentColor" stroke="none"/>
+  </svg>`;
+
+  function page(d){
+    return `
+    <div class="page">
+      <div class="frame"></div>
+      <div class="corner tl">${corner}</div>
+      <div class="corner tr">${corner}</div>
+      <div class="corner bl">${corner}</div>
+      <div class="corner br">${corner}</div>
+      <div class="content">
+        <div class="top">
+          <div class="leaf">&#10086;</div>
+          <p class="quote">${d.quote}</p>
+        </div>
+
+        <div>
+          <div class="label">${d.weddingOf}</div>
+          <div class="names">
+            <span class="n">ANDREA</span>
+            <span class="amp">&amp;</span>
+            <span class="n">ANDRÁS</span>
+          </div>
+        </div>
+
+        <div class="photo-wrap">
+          <img src="images/couple-cutout.png" alt="Andrea & András" />
+        </div>
+
+        <div class="invite-line">${d.invite}</div>
+
+        <div class="details">
+          <div class="col">
+            <div class="label">${d.saturday}</div>
+            <div class="big-date">${d.date}</div>
+            <div class="divider"><span class="heart">&#9825;</span></div>
+            <div class="time">${d.time}</div>
+          </div>
+        </div>
+
+        <div class="venues">
+          <div class="col">
+            <div class="label">${d.ceremony}</div>
+            <div class="venue">Szentendrei Házasságkötő Terem</div>
+            <div class="addr">2000 Szentendre, Városház tér 3</div>
+          </div>
+          <div class="col">
+            <div class="label">${d.reception}</div>
+            <div class="venue">Szamos Múzeum Cukrászda</div>
+            <div class="addr">2000 Szentendre, Dumtsa Jenő u. 12</div>
+          </div>
+        </div>
+
+        <div>
+          <p class="gift">${d.gift}</p>
+          <div class="divider"><span class="heart">&#9825;</span></div>
+          <div class="footer-mono">04 &middot; 07 &middot; 2026</div>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  document.getElementById('root').innerHTML = PAGES.map(page).join('');
+</script>
+</body>
+</html>

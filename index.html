@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Andrea &amp; András — 04.07.2026</title>
+<meta name="description" content="Andrea &amp; András · We joyfully invite you to celebrate our wedding · 4 July 2026 · Szentendre, Hungary" />
+
+<!-- Open Graph / social share preview -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Andrea &amp; András — Wedding · 04.07.2026" />
+<meta property="og:description" content="We joyfully invite you to celebrate our wedding · 4 July 2026 · Szentendre, Hungary" />
+<meta property="og:image" content="images/couple-roses.jpg" />
+<meta property="og:locale" content="en" />
+<meta property="og:locale:alternate" content="hu" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Andrea &amp; András — Wedding · 04.07.2026" />
+<meta name="twitter:description" content="We joyfully invite you to celebrate our wedding · 4 July 2026 · Szentendre, Hungary" />
+<meta name="twitter:image" content="images/couple-roses.jpg" />
+<meta name="theme-color" content="#a8895f" />
+
+<!-- Favicon: A&A monogram -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f4efe6'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='600' fill='%23a8895f' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --cream:#f4efe6; --cream-2:#ece4d6; --ivory:#faf7f1;
+    --ink:#2c2a27; --ink-soft:#5b554d;
+    --gold:#a8895f; --gold-soft:#c4ab84; --gold-line:#d8c7a8;
+    --shadow:rgba(60,48,30,.18);
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --script:'Great Vibes',cursive;
+    --sans:'Montserrat',sans-serif;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ font-family:var(--serif); color:var(--ink); background:var(--ivory); overflow-x:hidden; line-height:1.5; }
+  img{ max-width:100%; display:block; }
+
+  /* ============ PRELOADER ============ */
+  #loader{
+    position:fixed; inset:0; z-index:200;
+    background:radial-gradient(120% 120% at 50% 30%, var(--ivory), var(--cream) 70%, var(--cream-2));
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    transition:opacity .9s ease, visibility .9s ease;
+  }
+  #loader.done{ opacity:0; visibility:hidden; }
+  .loader-ring{
+    position:relative; width:170px; height:170px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .loader-ring svg{ position:absolute; inset:0; width:100%; height:100%; transform:rotate(-90deg); }
+  .loader-ring circle{
+    fill:none; stroke:var(--gold); stroke-width:1.4; stroke-linecap:round;
+    stroke-dasharray:339; stroke-dashoffset:339;
+    animation:draw 2.1s ease forwards;
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  .loader-mono{
+    font-family:var(--serif); font-weight:500; color:var(--gold);
+    font-size:3rem; letter-spacing:.04em; display:flex; align-items:center; gap:.35rem;
+    opacity:0; animation:monoIn 1s ease .35s forwards;
+  }
+  .loader-mono .amp{ font-family:var(--script); font-size:2.4rem; }
+  @keyframes monoIn{ from{ opacity:0; transform:scale(.8); } to{ opacity:1; transform:scale(1); } }
+  .loader-names{
+    margin-top:1.2rem; font-family:var(--sans); letter-spacing:.36em;
+    text-transform:uppercase; font-size:.74rem; color:var(--ink-soft);
+    opacity:0; animation:fadeUp 1s ease 1.1s forwards;
+  }
+  .loader-date{
+    margin-top:.5rem; font-family:var(--script); font-size:1.5rem; color:var(--gold);
+    opacity:0; animation:fadeUp 1s ease 1.5s forwards;
+  }
+  @keyframes fadeUp{ from{ opacity:0; transform:translateY(12px); } to{ opacity:1; transform:none; } }
+
+  body.loading{ overflow:hidden; height:100vh; }
+
+  /* ============ Decorative ============ */
+  .divider{ display:flex; align-items:center; justify-content:center; gap:.6rem; color:var(--gold); margin:1.1rem auto; }
+  .divider::before,.divider::after{ content:""; height:1px; width:46px; background:linear-gradient(90deg,transparent,var(--gold-line)); }
+  .divider::after{ transform:scaleX(-1); }
+  .heart{ font-size:.8rem; opacity:.75; }
+  .label{ font-family:var(--sans); letter-spacing:.34em; text-transform:uppercase; font-size:.78rem; font-weight:400; color:var(--gold); }
+
+  /* ============ Language switch ============ */
+  .lang{
+    position:fixed; top:16px; right:16px; z-index:120;
+    display:flex; gap:6px; background:rgba(250,247,241,.72); backdrop-filter:blur(8px);
+    border:1px solid var(--gold-line); border-radius:999px; padding:5px; box-shadow:0 6px 20px var(--shadow);
+  }
+  .lang button{ font-family:var(--sans); font-size:.72rem; letter-spacing:.12em; border:0; cursor:pointer; background:transparent; color:var(--ink-soft); padding:6px 12px; border-radius:999px; transition:.35s ease; }
+  .lang button.active{ background:var(--gold); color:#fff; }
+
+  /* ============ HERO ============ */
+  .hero{ position:relative; min-height:100vh; display:grid; grid-template-columns:1.05fr .95fr;
+    background:radial-gradient(120% 80% at 0% 0%, var(--ivory), var(--cream) 60%, var(--cream-2)); overflow:hidden; }
+  .hero__text{ position:relative; z-index:3; padding:clamp(2rem,6vw,5rem) clamp(1.4rem,5vw,4.5rem); display:flex; flex-direction:column; justify-content:center; }
+  .hero__quote{ font-style:italic; font-size:clamp(1.05rem,1.6vw,1.35rem); color:var(--ink-soft); max-width:22ch; margin-bottom:1.8rem; }
+  .hero__of{ margin-bottom:.4rem; }
+  .names{ font-weight:500; line-height:.98; letter-spacing:.02em; }
+  .names .n{ font-size:clamp(3rem,8.5vw,6.2rem); display:block; }
+  .names .amp{ display:flex; align-items:center; gap:1rem; font-size:clamp(2rem,5vw,3.4rem); color:var(--gold); margin:.1rem 0; }
+  .names .amp::before,.names .amp::after{ content:""; height:1px; flex:1; max-width:120px; background:var(--gold-line); }
+  .hero__invite{ font-family:var(--script); font-size:clamp(1.5rem,2.6vw,2.1rem); color:var(--gold); margin-top:1.6rem; line-height:1.25; }
+
+  .hero__photo{ position:relative; z-index:2; display:flex; align-items:flex-end; justify-content:center; }
+  .hero__photo img{ height:92%; width:auto; object-fit:contain; align-self:flex-end;
+    filter:drop-shadow(0 24px 40px rgba(60,48,30,.28)); animation:sway 7s ease-in-out infinite; }
+  @keyframes sway{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-10px); } }
+  .hero__photo::before{ content:""; position:absolute; bottom:6%; left:50%; width:70%; height:70%; transform:translateX(-50%);
+    background:radial-gradient(circle, rgba(196,171,132,.35), transparent 70%); filter:blur(8px); z-index:-1; }
+
+  .floaties{ position:absolute; inset:0; pointer-events:none; z-index:1; }
+  .floaties span{ position:absolute; color:var(--gold-soft); opacity:.5; animation:float 9s ease-in-out infinite; }
+  @keyframes float{ 0%,100%{ transform:translateY(0) rotate(0deg); } 50%{ transform:translateY(-22px) rotate(8deg); } }
+
+  .scroll-cue{ position:absolute; bottom:18px; left:50%; transform:translateX(-50%); z-index:4;
+    font-family:var(--sans); font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); text-align:center; }
+  .scroll-cue .dot{ display:block; width:1px; height:34px; margin:8px auto 0; background:var(--gold-line); position:relative; overflow:hidden; }
+  .scroll-cue .dot::after{ content:""; position:absolute; top:-34px; left:0; width:100%; height:34px; background:var(--gold); animation:cue 1.8s ease-in-out infinite; }
+  @keyframes cue{ 0%{ top:-34px; } 60%,100%{ top:34px; } }
+
+  /* ============ Sections ============ */
+  section{ position:relative; }
+  .wrap{ max-width:1040px; margin:0 auto; padding:clamp(3rem,8vw,6rem) 1.4rem; }
+  .center{ text-align:center; }
+
+  .quote-band{ background:var(--cream); }
+  .quote-band p{ font-style:italic; font-size:clamp(1.3rem,3vw,2rem); max-width:24ch; margin:1rem auto; color:var(--ink); line-height:1.4; }
+
+  /* ===== Story (first photo) ===== */
+  .story{ background:var(--ivory); }
+  .story-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(1.5rem,5vw,3.5rem); align-items:center; }
+  .story-photo{ position:relative; border-radius:18px; overflow:hidden; box-shadow:0 22px 46px var(--shadow); }
+  .story-photo img{ width:100%; height:100%; object-fit:cover; aspect-ratio:4/3; transition:transform 1.2s ease; }
+  .story-photo:hover img{ transform:scale(1.05); }
+  .story-photo::after{ content:""; position:absolute; inset:0; border:1px solid rgba(255,255,255,.5); border-radius:18px; pointer-events:none; }
+  .story-text{ text-align:left; }
+  .story-text h2{ font-size:clamp(1.8rem,4vw,2.8rem); font-weight:500; line-height:1.1; margin:.4rem 0 .2rem; }
+  .story-text p{ font-size:clamp(1.05rem,1.8vw,1.25rem); color:var(--ink-soft); margin-top:.8rem; }
+  @media(max-width:760px){ .story-grid{ grid-template-columns:1fr; } .story-text{ text-align:center; } .story-text .divider{ margin-inline:auto; } }
+
+  /* ===== Countdown ===== */
+  .count{ display:flex; gap:clamp(.5rem,3vw,2.2rem); justify-content:center; flex-wrap:wrap; margin-top:1.6rem; }
+  .count .box{ min-width:78px; padding:1rem .6rem; background:var(--ivory); border:1px solid var(--gold-line); border-radius:14px; box-shadow:0 10px 26px var(--shadow); transition:transform .4s ease; }
+  .count .box:hover{ transform:translateY(-5px); }
+  .count .num{ font-size:clamp(1.9rem,5vw,3rem); font-weight:600; color:var(--gold); line-height:1; }
+  .count .unit{ font-family:var(--sans); font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft); margin-top:.5rem; }
+
+  /* ===== Details ===== */
+  .details{ background:var(--cream); }
+  .detail-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(1.5rem,5vw,4rem); align-items:start; margin-top:1.5rem; }
+  .detail-grid .big-date{ font-size:clamp(2.6rem,7vw,4.4rem); font-weight:500; line-height:1; margin:.3rem 0; }
+  .detail-block{ margin-bottom:2rem; }
+  .detail-block .venue{ font-style:italic; font-size:clamp(1.2rem,2.4vw,1.55rem); margin-top:.35rem; }
+  .detail-block .addr{ font-family:var(--sans); font-size:.74rem; letter-spacing:.08em; color:var(--ink-soft); margin-top:.45rem; }
+  .map-btn{ display:inline-flex; align-items:center; gap:.5rem; margin-top:.8rem;
+    font-family:var(--sans); font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; text-decoration:none;
+    color:var(--gold); border:1px solid var(--gold-line); border-radius:999px; padding:.55rem 1.1rem;
+    transition:.35s ease; background:rgba(250,247,241,.4); }
+  .map-btn:hover{ background:var(--gold); color:#fff; border-color:var(--gold); transform:translateY(-2px); }
+  .map-btn svg{ width:14px; height:14px; fill:currentColor; flex:none; }
+  @media(max-width:760px){ .detail-grid{ grid-template-columns:1fr; text-align:center; } .detail-grid .divider{ margin-inline:auto; } }
+
+  /* ===== Gallery ===== */
+  .gallery{ background:var(--ivory); }
+  .gal-grid{ display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:170px; gap:12px; margin-top:1.6rem; }
+  .gal-grid figure{ overflow:hidden; border-radius:14px; box-shadow:0 14px 30px var(--shadow); background:var(--cream-2); position:relative; }
+  .gal-grid img{ width:100%; height:100%; object-fit:cover; transition:transform 1.1s ease, filter 1.1s ease; }
+  .gal-grid figure:hover img{ transform:scale(1.08); }
+  .gal-grid .tall{ grid-row:span 2; }
+  .gal-grid .wide{ grid-column:span 2; }
+  @media(max-width:760px){ .gal-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:140px; } .gal-grid .wide{ grid-column:span 2; } }
+
+  /* ===== Gift ===== */
+  .gift{ background:var(--cream); }
+  .gift .icon{ font-size:2.2rem; color:var(--gold); margin-bottom:.6rem; }
+  .gift p{ font-family:var(--sans); letter-spacing:.18em; text-transform:uppercase; font-size:.82rem; line-height:2.1; color:var(--ink-soft); max-width:46ch; margin:.6rem auto 0; }
+
+  footer{ background:var(--cream-2); text-align:center; padding:2.4rem 1rem; }
+  footer .names-sm{ font-family:var(--script); font-size:2rem; color:var(--gold); }
+  footer small{ font-family:var(--sans); letter-spacing:.2em; font-size:.7rem; color:var(--ink-soft); display:block; margin-top:.4rem; }
+
+  /* ===== Scroll reveal ===== */
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity 1s ease, transform 1s ease; }
+  .reveal.left{ transform:translateX(-32px); }
+  .reveal.right{ transform:translateX(32px); }
+  .reveal.zoom{ transform:scale(.92); }
+  .reveal.in{ opacity:1; transform:none; }
+  .reveal.d1{ transition-delay:.12s; } .reveal.d2{ transition-delay:.24s; } .reveal.d3{ transition-delay:.36s; } .reveal.d4{ transition-delay:.48s; }
+  @media(prefers-reduced-motion:reduce){
+    .reveal{ opacity:1; transform:none; }
+    .floaties span,.hero__photo img,.scroll-cue .dot::after{ animation:none; }
+  }
+
+  /* ===== Falling petals ===== */
+  #petals{ position:fixed; inset:0; pointer-events:none; z-index:90; overflow:hidden; }
+  .petal{ position:absolute; top:-6vh; will-change:transform; opacity:0; }
+  .petal svg{ display:block; }
+  @keyframes fall{
+    0%{ transform:translateY(-6vh) translateX(0) rotate(0deg); opacity:0; }
+    8%{ opacity:.9; }
+    100%{ transform:translateY(108vh) translateX(var(--drift,40px)) rotate(var(--spin,360deg)); opacity:.9; }
+  }
+  @media(prefers-reduced-motion:reduce){ #petals{ display:none; } }
+
+  /* ===== Calendar button ===== */
+  .cal-btn{ display:inline-flex; align-items:center; gap:.55rem; margin-top:1.6rem;
+    font-family:var(--sans); font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; text-decoration:none;
+    color:#fff; background:var(--gold); border:1px solid var(--gold); border-radius:999px; padding:.7rem 1.5rem;
+    cursor:pointer; transition:.35s ease; box-shadow:0 10px 24px var(--shadow); }
+  .cal-btn:hover{ background:#8f713f; border-color:#8f713f; transform:translateY(-2px); }
+  .cal-btn svg{ width:15px; height:15px; fill:currentColor; flex:none; }
+
+  /* ===== Lightbox ===== */
+  #lightbox{ position:fixed; inset:0; z-index:150; background:rgba(28,24,20,.92);
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; visibility:hidden; transition:opacity .4s ease, visibility .4s ease; }
+  #lightbox.open{ opacity:1; visibility:visible; }
+  #lightbox img{ max-width:90vw; max-height:84vh; border-radius:10px;
+    box-shadow:0 20px 60px rgba(0,0,0,.5); transform:scale(.96); transition:transform .4s ease; }
+  #lightbox.open img{ transform:scale(1); }
+  .lb-btn{ position:absolute; background:rgba(250,247,241,.12); border:1px solid rgba(255,255,255,.35);
+    color:#fff; width:48px; height:48px; border-radius:50%; font-size:1.4rem; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; transition:.3s ease; backdrop-filter:blur(4px); }
+  .lb-btn:hover{ background:var(--gold); border-color:var(--gold); }
+  .lb-prev{ left:3vw; } .lb-next{ right:3vw; } .lb-close{ top:3vh; right:3vw; width:44px; height:44px; font-size:1.2rem; }
+  .gal-grid figure{ cursor:pointer; }
+  @media(max-width:760px){ .lb-prev{ left:2vw; } .lb-next{ right:2vw; } .lb-btn{ width:42px; height:42px; } }
+
+  /* ===== Hero responsive ===== */
+  @media(max-width:860px){
+    .hero{ grid-template-columns:1fr; min-height:auto; }
+    .hero__text{ padding-top:6rem; text-align:center; align-items:center; }
+    .hero__quote{ max-width:30ch; }
+    .names .amp::before,.names .amp::after{ max-width:60px; }
+    .hero__photo{ min-height:62vh; }
+    .hero__photo img{ height:auto; max-height:74vh; }
+    .scroll-cue{ display:none; }
+  }
+</style>
+</head>
+<body class="loading">
+
+  <!-- ============ PRELOADER ============ -->
+  <div id="loader">
+    <div class="loader-ring">
+      <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" /></svg>
+      <div class="loader-mono">A <span class="amp">&amp;</span> A</div>
+    </div>
+    <div class="loader-names">Andrea &amp; András</div>
+    <div class="loader-date">04 · 07 · 2026</div>
+  </div>
+
+  <!-- ============ FALLING PETALS ============ -->
+  <div id="petals" aria-hidden="true"></div>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo">
+    <button class="lb-btn lb-close" aria-label="Close">&#10005;</button>
+    <button class="lb-btn lb-prev" aria-label="Previous">&#8249;</button>
+    <img id="lb-img" src="" alt="" />
+    <button class="lb-btn lb-next" aria-label="Next">&#8250;</button>
+  </div>
+
+  <!-- ============ LANGUAGE ============ -->
+  <div class="lang" role="group" aria-label="Language">
+    <button data-lang="en" class="active">EN</button>
+    <button data-lang="hu">HU</button>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="floaties">
+      <span style="top:12%;left:8%;font-size:1.6rem;animation-delay:0s">❦</span>
+      <span style="top:28%;left:42%;font-size:1rem;animation-delay:1.4s">✿</span>
+      <span style="top:70%;left:14%;font-size:1.2rem;animation-delay:2.2s">❀</span>
+      <span style="top:50%;left:55%;font-size:.9rem;animation-delay:3s">❦</span>
+    </div>
+
+    <div class="hero__text">
+      <p class="hero__quote reveal" data-i18n="quote"></p>
+      <p class="label hero__of reveal d1" data-i18n="weddingOf"></p>
+      <div class="names reveal d2">
+        <span class="n">ANDREA</span>
+        <span class="amp">&amp;</span>
+        <span class="n">ANDRÁS</span>
+      </div>
+      <div class="divider reveal d3"><span class="heart">♡</span></div>
+      <p class="hero__invite reveal d3" data-i18n="invite"></p>
+    </div>
+
+    <div class="hero__photo">
+      <img id="heroPhoto" src="images/couple-cutout.png" alt="Andrea &amp; András" onerror="this.style.display='none'" />
+    </div>
+
+    <div class="scroll-cue"><span data-i18n="scroll"></span><span class="dot"></span></div>
+  </header>
+
+  <!-- ============ QUOTE BAND ============ -->
+  <section class="quote-band center">
+    <div class="wrap">
+      <span class="label reveal" data-i18n="together"></span>
+      <div class="divider reveal"><span class="heart">♡</span></div>
+      <p class="reveal d1" data-i18n="quoteBig"></p>
+    </div>
+  </section>
+
+  <!-- ============ STORY — first photo ============ -->
+  <section class="story">
+    <div class="wrap">
+      <div class="story-grid">
+        <div class="story-photo reveal left">
+          <img src="images/story-begin.jpg" alt="" onerror="this.closest('.story-photo').style.display='none'">
+        </div>
+        <div class="story-text reveal right d1">
+          <span class="label" data-i18n="storyLabel"></span>
+          <h2 data-i18n="storyTitle"></h2>
+          <div class="divider"><span class="heart">♡</span></div>
+          <p data-i18n="storyText"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COUNTDOWN ============ -->
+  <section class="center">
+    <div class="wrap">
+      <span class="label reveal" data-i18n="countdownTitle"></span>
+      <div class="divider reveal"><span class="heart">♡</span></div>
+      <div class="count reveal d1" id="countdown">
+        <div class="box"><div class="num" id="cd-d">00</div><div class="unit" data-i18n="days"></div></div>
+        <div class="box"><div class="num" id="cd-h">00</div><div class="unit" data-i18n="hours"></div></div>
+        <div class="box"><div class="num" id="cd-m">00</div><div class="unit" data-i18n="minutes"></div></div>
+        <div class="box"><div class="num" id="cd-s">00</div><div class="unit" data-i18n="seconds"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DETAILS ============ -->
+  <section class="details">
+    <div class="wrap center">
+      <span class="label reveal" data-i18n="invite2"></span>
+      <div class="detail-grid">
+        <div class="reveal left d1">
+          <span class="label" data-i18n="saturday"></span>
+          <div class="big-date">4 <span data-i18n="july"></span> 2026</div>
+          <div class="divider"><span class="heart">♡</span></div>
+          <span class="label" id="time">12:00 PM</span>
+        </div>
+        <div class="reveal right d2">
+          <div class="detail-block">
+            <span class="label" data-i18n="ceremony"></span>
+            <div class="venue">Szentendrei Házasságkötő Terem</div>
+            <div class="addr">2000 Szentendre, Városház tér 3</div>
+            <a class="map-btn" target="_blank" rel="noopener"
+               href="https://www.google.com/maps/search/?api=1&query=Szentendrei%20H%C3%A1zass%C3%A1gk%C3%B6t%C5%91%20Terem%20V%C3%A1rosh%C3%A1z%20t%C3%A9r%203%20Szentendre">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>
+              <span data-i18n="viewMap"></span>
+            </a>
+          </div>
+          <div class="divider"><span class="heart">♡</span></div>
+          <div class="detail-block">
+            <span class="label" data-i18n="reception"></span>
+            <div class="venue">Szamos Múzeum Cukrászda</div>
+            <div class="addr">2000 Szentendre, Dumtsa Jenő u. 12</div>
+            <a class="map-btn" target="_blank" rel="noopener"
+               href="https://www.google.com/maps/search/?api=1&query=Szamos%20M%C3%BAzeum%20Cukr%C3%A1szda%20Dumtsa%20Jen%C5%91%20u%2012%20Szentendre">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>
+              <span data-i18n="viewMap"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <a class="cal-btn reveal d3" id="calBtn" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M7 2v2H5a2 2 0 00-2 2v13a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2h-2V2h-2v2H9V2H7zm12 7v10H5V9h14z"/></svg>
+        <span data-i18n="addCal"></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="gallery center">
+    <div class="wrap">
+      <span class="label reveal" data-i18n="moments"></span>
+      <div class="divider reveal"><span class="heart">♡</span></div>
+      <p class="reveal d1" data-i18n="momentsSub" style="font-style:italic;color:var(--ink-soft);margin-bottom:.4rem"></p>
+      <div class="gal-grid">
+        <figure class="tall reveal zoom"><img src="images/couple-cutout-2.png" alt="" onerror="this.parentElement.style.display='none'"></figure>
+        <figure class="reveal zoom d1"><img src="images/g-hallstatt.jpg" alt="" onerror="this.parentElement.style.display='none'"></figure>
+        <figure class="reveal zoom d2"><img src="images/g-lake.jpg" alt="" onerror="this.parentElement.style.display='none'"></figure>
+        <figure class="tall reveal zoom d1"><img src="images/couple-tree.jpg" alt="" onerror="this.parentElement.style.display='none'"></figure>
+        <figure class="wide reveal zoom d2"><img src="images/g-bridge.jpg" alt="" onerror="this.parentElement.style.display='none'"></figure>
+        <figure class="reveal zoom d3"><img src="images/g-budapest.jpg" alt="" onerror="this.parentElement.style.display='none'"></figure>
+        <figure class="reveal zoom"><img src="images/g-balcony.jpg" alt="" onerror="this.parentElement.style.display='none'"></figure>
+        <figure class="reveal zoom d1"><img src="images/g-lisbon.jpg" alt="" onerror="this.parentElement.style.display='none'"></figure>
+        <figure class="tall reveal zoom d2"><img src="images/couple-roses.jpg" alt="" onerror="this.parentElement.style.display='none'"></figure>
+        <figure class="reveal zoom d3"><img src="images/g-beach.jpg" alt="" onerror="this.parentElement.style.display='none'"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GIFT ============ -->
+  <section class="gift center">
+    <div class="wrap">
+      <div class="icon reveal">🎁</div>
+      <p class="reveal d1" data-i18n="gift"></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="names-sm">Andrea &amp; András</div>
+    <small>04 · 07 · 2026</small>
+  </footer>
+
+<script>
+  /* ---------------- i18n ---------------- */
+  const I18N = {
+    en:{
+      quote:"Two hearts, one love, a beautiful journey we can't wait to share with you.",
+      weddingOf:"The wedding of",
+      invite:"We joyfully invite you\nto celebrate our wedding",
+      scroll:"Scroll",
+      together:"Together with their families",
+      quoteBig:"We joyfully invite you to celebrate our wedding.",
+      storyLabel:"Where it all began",
+      storyTitle:"Our journey",
+      storyText:"From a mission far from home to a life built together — every step, every country, every sunrise has led us here. Now we can't wait to begin our greatest adventure yet.",
+      countdownTitle:"Until our big day",
+      days:"Days", hours:"Hours", minutes:"Minutes", seconds:"Seconds",
+      invite2:"We request the pleasure of your company",
+      saturday:"Saturday", july:"July", time:"12:00 PM",
+      ceremony:"Ceremony", reception:"Reception", viewMap:"View on map", addCal:"Add to calendar",
+      moments:"Our moments", momentsSub:"A few of our favourite memories around the world",
+      gift:"Your presence will be our greatest gift. We request the pleasure of your company on our wedding day."
+    },
+    hu:{
+      quote:"Két szív, egy szerelem, egy gyönyörű utazás, amelyet alig várunk, hogy megosszunk veletek.",
+      weddingOf:"Esküvője",
+      invite:"Örömmel meghívunk titeket,\nhogy ünnepeljétek velünk esküvőnket",
+      scroll:"Görgess",
+      together:"Családjaikkal együtt",
+      quoteBig:"Örömmel meghívunk, hogy ünnepeld velünk az esküvőnket.",
+      storyLabel:"Ahol minden elkezdődött",
+      storyTitle:"A mi utazásunk",
+      storyText:"Egy otthontól távoli küldetéstől a közös életünkig — minden lépés, minden ország, minden napfelkelte idáig vezetett minket. Most alig várjuk, hogy elkezdjük életünk legnagyobb kalandját.",
+      countdownTitle:"A nagy napunkig",
+      days:"Nap", hours:"Óra", minutes:"Perc", seconds:"Másodperc",
+      invite2:"Szeretettel várjuk a társaságodat",
+      saturday:"Szombat", july:"Július", time:"12:00",
+      ceremony:"Szertartás", reception:"Fogadás", viewMap:"Megnézem a térképen", addCal:"Hozzáadás a naptárhoz",
+      moments:"Pillanataink", momentsSub:"Néhány kedvenc emlékünk a világ minden tájáról",
+      gift:"Jelenléted lesz a legszebb ajándék számunkra. Szeretettel várunk az esküvőnk napján."
+    }
+  };
+
+  function setLang(lang){
+    const dict = I18N[lang];
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const key = el.getAttribute('data-i18n');
+      if(dict[key]!==undefined) el.innerHTML = dict[key].replace(/\n/g,'<br>');
+    });
+    document.getElementById('time').textContent = dict.time;
+    document.querySelectorAll('.lang button').forEach(b=> b.classList.toggle('active', b.dataset.lang===lang));
+    try{ localStorage.setItem('weddingLang', lang); }catch(e){}
+  }
+  document.querySelectorAll('.lang button').forEach(b=> b.addEventListener('click',()=>setLang(b.dataset.lang)));
+  let saved='en';
+  try{ saved = localStorage.getItem('weddingLang') || (navigator.language.startsWith('hu')?'hu':'en'); }catch(e){}
+  setLang(saved);
+
+  /* ---------------- Preloader ---------------- */
+  function hideLoader(){
+    const l=document.getElementById('loader');
+    if(l && !l.classList.contains('done')){
+      l.classList.add('done');
+      document.body.classList.remove('loading');
+    }
+  }
+  window.addEventListener('load', ()=> setTimeout(hideLoader, 2300));
+  setTimeout(hideLoader, 4200); // safety fallback
+
+  /* ---------------- Countdown ---------------- */
+  const target = new Date('2026-07-04T12:00:00+02:00').getTime();
+  function tick(){
+    let diff = Math.max(0, target - Date.now());
+    const d=Math.floor(diff/86400000); diff-=d*86400000;
+    const h=Math.floor(diff/3600000);  diff-=h*3600000;
+    const m=Math.floor(diff/60000);    diff-=m*60000;
+    const s=Math.floor(diff/1000);
+    const p=n=>String(n).padStart(2,'0');
+    document.getElementById('cd-d').textContent=p(d);
+    document.getElementById('cd-h').textContent=p(h);
+    document.getElementById('cd-m').textContent=p(m);
+    document.getElementById('cd-s').textContent=p(s);
+  }
+  tick(); setInterval(tick,1000);
+
+  /* ---------------- Scroll reveal ---------------- */
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{ threshold:.12 });
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  /* ---------------- Parallax on hero photo ---------------- */
+  const hp=document.getElementById('heroPhoto');
+  if(hp && !matchMedia('(prefers-reduced-motion:reduce)').matches){
+    addEventListener('scroll', ()=>{
+      const y=scrollY;
+      if(y<window.innerHeight) hp.style.transform=`translateY(${y*0.08}px)`;
+    }, {passive:true});
+  }
+
+  /* ---------------- Add to calendar ---------------- */
+  (function(){
+    const start="20260704T100000Z";  // 12:00 Budapest (UTC+2) = 10:00 UTC
+    const end  ="20260704T160000Z";  // approx 18:00 local
+    const title="Andrea & András — Wedding";
+    const loc="Szentendrei Házasságkötő Terem, Városház tér 3, 2000 Szentendre, Hungary";
+    const desc="We joyfully invite you to celebrate our wedding. Ceremony: Szentendrei Házasságkötő Terem · Reception: Szamos Múzeum Cukrászda.";
+    const g="https://www.google.com/calendar/render?action=TEMPLATE"
+      +"&text="+encodeURIComponent(title)
+      +"&dates="+start+"/"+end
+      +"&details="+encodeURIComponent(desc)
+      +"&location="+encodeURIComponent(loc);
+    const btn=document.getElementById('calBtn');
+    if(btn) btn.href=g;
+  })();
+
+  /* ---------------- Lightbox ---------------- */
+  (function(){
+    const lb=document.getElementById('lightbox');
+    const lbImg=document.getElementById('lb-img');
+    const figs=[...document.querySelectorAll('.gal-grid figure img')];
+    let idx=0;
+    function show(i){ idx=(i+figs.length)%figs.length; lbImg.src=figs[idx].src; }
+    function open(i){ show(i); lb.classList.add('open'); document.body.style.overflow='hidden'; }
+    function close(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+    figs.forEach((img,i)=> img.addEventListener('click',()=>open(i)));
+    lb.querySelector('.lb-close').addEventListener('click',close);
+    lb.querySelector('.lb-prev').addEventListener('click',e=>{e.stopPropagation();show(idx-1);});
+    lb.querySelector('.lb-next').addEventListener('click',e=>{e.stopPropagation();show(idx+1);});
+    lb.addEventListener('click',e=>{ if(e.target===lb) close(); });
+    addEventListener('keydown',e=>{
+      if(!lb.classList.contains('open')) return;
+      if(e.key==='Escape') close();
+      if(e.key==='ArrowLeft') show(idx-1);
+      if(e.key==='ArrowRight') show(idx+1);
+    });
+  })();
+
+  /* ---------------- Falling petals ---------------- */
+  (function(){
+    if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+    const box=document.getElementById('petals');
+    const colors=['#e9d9bf','#d8c7a8','#c4ab84','#efe3cf'];
+    const petalSVG=c=>`<svg width="100%" height="100%" viewBox="0 0 24 24"><path d="M12 2C7 6 4 11 4 15a8 8 0 0016 0c0-4-3-9-8-13z" fill="${c}"/></svg>`;
+    const MAX=18;
+    function spawn(){
+      if(box.childElementCount>MAX) return;
+      const p=document.createElement('div');
+      p.className='petal';
+      const size=10+Math.random()*14;
+      p.style.left=Math.random()*100+'vw';
+      p.style.width=size+'px'; p.style.height=size+'px';
+      p.style.setProperty('--drift',(Math.random()*160-80)+'px');
+      p.style.setProperty('--spin',(Math.random()*540+180)+'deg');
+      const dur=8+Math.random()*7;
+      p.style.animation=`fall ${dur}s linear forwards`;
+      p.innerHTML=petalSVG(colors[Math.floor(Math.random()*colors.length)]);
+      box.appendChild(p);
+      setTimeout(()=>p.remove(), dur*1000+200);
+    }
+    for(let i=0;i<8;i++) setTimeout(spawn, i*500);
+    setInterval(spawn, 1400);
+  })();
+</script>
+</body>
+</html>
